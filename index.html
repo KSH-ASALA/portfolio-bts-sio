@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin HAROUTUNIAN | Portfolio BTS SIO SISR — ESTIAM Paris</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome 6 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        oled: {
+                            black: '#000000',
+                            card: '#080808',
+                            border: '#18181b',
+                            subtle: '#27272a'
+                        },
+                        pure: {
+                            white: '#ffffff',
+                            card: '#fafafa',
+                            border: '#e4e4e7',
+                            muted: '#f4f4f5'
+                        },
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Pure White Theme (Default) */
+        body {
+            background-color: #ffffff;
+            color: #09090b;
+            overflow-x: hidden;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .bg-grid-cyber {
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(228, 228, 231, 0.7) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(228, 228, 231, 0.7) 1px, transparent 1px);
+        }
+
+        /* True OLED Black Overrides */
+        html.dark body {
+            background-color: #000000;
+            color: #fafafa;
+        }
+
+        html.dark .bg-grid-cyber {
+            background-image: 
+                linear-gradient(to right, rgba(39, 39, 42, 0.4) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(39, 39, 42, 0.4) 1px, transparent 1px);
+        }
+
+        .cursor-blink {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4d4d8;
+            border-radius: 4px;
+        }
+        html.dark ::-webkit-scrollbar-thumb {
+            background: #27272a;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #10b981;
+        }
+
+        .nav-link.active {
+            color: #059669;
+            background-color: rgba(16, 185, 129, 0.1);
+            border-color: rgba(16, 185, 129, 0.35);
+        }
+        html.dark .nav-link.active {
+            color: #34d399;
+            background-color: rgba(16, 185, 129, 0.15);
+            border-color: rgba(16, 185, 129, 0.45);
+        }
+    </style>
+</head>
+<body class="bg-grid-cyber min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white dark:selection:text-black">
+
+    <!-- Ambient Subtle Glows -->
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-emerald-500/5 dark:bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+    <div class="fixed bottom-10 right-1/4 w-96 h-96 bg-cyan-500/5 dark:bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+
+    <!-- ==================== HEADER & NAVBAR ==================== -->
+    <header class="sticky top-0 z-40 backdrop-blur-xl bg-white/95 dark:bg-black/95 border-b border-zinc-200 dark:border-zinc-900 transition-colors duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                
+                <!-- Logo / Terminal Prompt -->
+                <a href="#accueil" class="flex items-center space-x-2.5 group">
+                    <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:border-emerald-500 transition">
+                        <i class="fa-solid fa-terminal text-xs"></i>
+                    </div>
+                    <div class="font-mono text-xs sm:text-sm font-bold tracking-tight">
+                        <span class="text-zinc-900 dark:text-white">kevin@estiam</span><span class="text-emerald-600 dark:text-emerald-400">:~#</span>
+                        <span class="inline-block w-1.5 h-3.5 bg-emerald-500 ml-0.5 align-middle cursor-blink"></span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden lg:flex items-center space-x-1">
+                    <a href="#accueil" data-section="accueil" class="nav-link active px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-zinc-600 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 border border-transparent transition">
+                        Accueil
+                    </a>
+                    <a href="#profil" data-section="profil" class="nav-link px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-zinc-600 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 border border-transparent transition">
+                        Profil & MIAGE
+                    </a>
+                    <a href="#projets" data-section="projets" class="nav-link px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-zinc-600 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 border border-transparent transition">
+                        Projets SISR
+                    </a>
+                    <a href="#tableau-e4" data-section="tableau-e4" class="nav-link px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-zinc-600 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 border border-transparent transition">
+                        Tableau E4
+                    </a>
+                    <a href="#veille" data-section="veille" class="nav-link px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 bg-emerald-500/5 transition flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Veille Quotidienne
+                    </a>
+                    <a href="#contact" data-section="contact" class="nav-link px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-zinc-600 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 border border-transparent transition">
+                        Contact
+                    </a>
+                </nav>
+
+                <!-- Actions & Switch Blanc Pur / Noir OLED -->
+                <div class="flex items-center space-x-2.5 sm:space-x-3">
+                    
+                    <!-- Alternance Badge -->
+                    <div class="hidden sm:flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 text-xs font-mono">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>ESTIAM Paris • Alternance</span>
+                    </div>
+
+                    <!-- TOGGLE THEME SWITCH (Blanc Pur / Noir OLED) -->
+                    <button id="theme-toggle" onclick="toggleTheme()" aria-label="Changer de thème"
+                        class="p-2 sm:px-3 sm:py-1.5 rounded-xl border border-zinc-300 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 hover:bg-zinc-200 dark:hover:bg-zinc-900 text-zinc-800 dark:text-zinc-200 transition flex items-center gap-2 text-xs font-mono shadow-sm">
+                        <i id="theme-icon" class="fa-solid fa-moon text-sm text-zinc-700"></i>
+                        <span id="theme-label" class="hidden sm:inline font-semibold">Mode OLED</span>
+                    </button>
+
+                    <a href="#contact" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-bold transition shadow-sm flex items-center gap-1.5">
+                        <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                        <span>Contact</span>
+                    </a>
+
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
+                        <i id="mobile-menu-icon" class="fa-solid fa-bars text-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white/95 dark:bg-black/95 border-b border-zinc-200 dark:border-zinc-900 px-4 pt-2 pb-4 space-y-1 backdrop-blur-xl">
+            <a href="#accueil" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-xs font-mono text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900">Accueil</a>
+            <a href="#profil" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-xs font-mono text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900">Profil & MIAGE</a>
+            <a href="#projets" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-xs font-mono text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900">Projets SISR</a>
+            <a href="#tableau-e4" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-xs font-mono text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900">Tableau de Synthèse E4</a>
+            <a href="#veille" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-xs font-mono text-emerald-600 dark:text-emerald-400 hover:bg-zinc-100 dark:hover:bg-zinc-900">Veille Quotidienne & NIS 2</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-xs font-mono text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900">Contact</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+
+        <!-- ==================== 1. ACCUEIL & TERMINAL ==================== -->
+        <section id="accueil" class="relative pt-10 pb-16 lg:py-24 border-b border-zinc-200 dark:border-zinc-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    
+                    <!-- Intro Left -->
+                    <div class="lg:col-span-6 space-y-6">
+                        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 dark:text-emerald-300 text-xs font-mono font-medium">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>PORTFOLIO BTS SIO SISR • ESTIAM PARIS</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-950 dark:text-white leading-tight">
+                            Kevin <br>
+                            <span class="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 dark:from-emerald-400 dark:via-teal-300 dark:to-cyan-400 bg-clip-text text-transparent">
+                                HAROUTUNIAN
+                            </span>
+                        </h1>
+
+                        <p class="text-base sm:text-lg font-medium text-zinc-700 dark:text-zinc-300">
+                            Étudiant en <span class="text-emerald-600 dark:text-emerald-400 font-mono font-bold">BTS SIO SISR</span> à l'<strong>ESTIAM Paris</strong> & Administrateur Systèmes, Réseaux et Sécurité en alternance.
+                        </p>
+
+                        <!-- MIAGE Target Box -->
+                        <div class="p-3.5 rounded-xl border border-emerald-500/30 bg-emerald-500/5 font-mono text-xs text-zinc-800 dark:text-zinc-200 flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-sm shrink-0">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <span class="text-emerald-700 dark:text-emerald-400 font-bold">Objectif poursuite d'études :</span>
+                                <span class="text-zinc-900 dark:text-zinc-100 ml-1 font-semibold">Licence 3 MIAGE ➔ Master MIAGE</span>
+                            </div>
+                        </div>
+
+                        <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed max-w-xl">
+                            Spécialisé dans la virtualisation haute disponibilité <strong class="text-zinc-900 dark:text-white">(Proxmox VE, Hyper-V)</strong>, la sécurité réseau <strong class="text-zinc-900 dark:text-white">(pfSense, VLAN 802.1Q)</strong>, l'administration d'annuaire <strong class="text-zinc-900 dark:text-white">(Active Directory, GPO)</strong> et l'automatisation <strong class="text-zinc-900 dark:text-white">(Linux Bash, WQL sous SCCM)</strong>.
+                        </p>
+
+                        <!-- Tech Badges -->
+                        <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
+                            <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-emerald-300"><i class="fa-brands fa-linux mr-1.5 text-amber-500"></i>Debian / Bash</span>
+                            <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-cyan-300"><i class="fa-brands fa-windows mr-1.5 text-cyan-500"></i>WinServer & AD DS</span>
+                            <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-300"><i class="fa-solid fa-cubes mr-1.5 text-orange-500"></i>Proxmox VE</span>
+                            <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-300"><i class="fa-solid fa-network-wired mr-1.5 text-emerald-500"></i>pfSense & VLAN</span>
+                            <span class="px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-300"><i class="fa-solid fa-gears mr-1.5 text-indigo-500"></i>SCCM / WQL</span>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-wrap items-center gap-3.5 pt-2">
+                            <a href="#projets" class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs font-mono transition shadow-sm flex items-center gap-2">
+                                <i class="fa-solid fa-diagram-project"></i>
+                                <span>Voir les projets E4 / E5</span>
+                            </a>
+                            <a href="#veille" class="px-5 py-3 rounded-xl bg-zinc-100 dark:bg-zinc-950 hover:bg-zinc-200 dark:hover:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border border-zinc-300 dark:border-zinc-800 hover:border-emerald-500 font-medium text-xs font-mono transition flex items-center gap-2">
+                                <i class="fa-solid fa-calendar-days text-emerald-600 dark:text-emerald-400"></i>
+                                <span>Veille Quotidienne (1-22 Octobre)</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Terminal Right -->
+                    <div class="lg:col-span-6">
+                        <div class="rounded-2xl bg-zinc-900 dark:bg-black border border-zinc-800 dark:border-zinc-800 shadow-xl overflow-hidden transition-all">
+                            <!-- Terminal Bar -->
+                            <div class="bg-zinc-950 px-4 py-3 border-b border-zinc-800 flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                                </div>
+                                <div class="text-xs font-mono text-zinc-400 flex items-center space-x-1.5">
+                                    <i class="fa-solid fa-terminal text-emerald-400"></i>
+                                    <span>kevin@estiam-srv01:~ (bash)</span>
+                                </div>
+                                <button onclick="runCommand('clear')" class="text-xs font-mono text-zinc-500 hover:text-zinc-300 transition">
+                                    clear
+                                </button>
+                            </div>
+
+                            <!-- Terminal Screen Body -->
+                            <div id="terminal-screen" class="p-4 sm:p-5 font-mono text-xs h-80 overflow-y-auto space-y-2.5 bg-zinc-900/95 dark:bg-black text-zinc-300">
+                                <div class="text-emerald-400">kevin@estiam-srv01:~$ <span class="text-white">neofetch --sisr</span></div>
+                                <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 pt-1">
+                                    <div class="sm:col-span-4 text-emerald-400 leading-tight select-none hidden sm:block font-bold">
+                                        &nbsp;&nbsp;.&nbsp;---&nbsp;.<br>
+                                        &nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<br>
+                                        |&nbsp;&nbsp;O&nbsp;&nbsp;&nbsp;O&nbsp;&nbsp;|<br>
+                                        |&nbsp;&nbsp;&nbsp;.&nbsp;.&nbsp;&nbsp;&nbsp;|<br>
+                                        &nbsp;\&nbsp;&nbsp;---&nbsp;&nbsp;/<br>
+                                        &nbsp;&nbsp;'-----'<br>
+                                        <span class="text-[10px] text-cyan-400">[ESTIAM-SISR]</span>
+                                    </div>
+                                    <div class="sm:col-span-8 space-y-1 text-xs text-zinc-300">
+                                        <div><span class="text-emerald-400 font-bold">Étudiant</span> : Kevin HAROUTUNIAN</div>
+                                        <div><span class="text-emerald-400 font-bold">École</span> : ESTIAM Paris (BTS SIO SISR)</div>
+                                        <div><span class="text-emerald-400 font-bold">Rythme</span> : En Alternance</div>
+                                        <div><span class="text-emerald-400 font-bold">Systèmes</span> : Debian 12 / WinSrv 2022 / Proxmox</div>
+                                        <div><span class="text-emerald-400 font-bold">Réseau</span> : pfSense, VLAN 802.1Q, DHCP/DNS, NAT</div>
+                                        <div><span class="text-emerald-400 font-bold">Objectif</span> : L3 MIAGE ➔ Master MIAGE</div>
+                                    </div>
+                                </div>
+                                <div id="terminal-output" class="space-y-2 pt-2 border-t border-zinc-800">
+                                    <div class="text-zinc-500 text-[11px]">Commandes supportées : <span class="text-emerald-400">help</span>, <span class="text-emerald-400">whoami</span>, <span class="text-emerald-400">projects</span>, <span class="text-emerald-400">skills</span>, <span class="text-emerald-400">target</span>, <span class="text-emerald-400">contact</span>, <span class="text-emerald-400">clear</span></div>
+                                </div>
+                            </div>
+
+                            <!-- Terminal Shortcuts -->
+                            <div class="px-4 py-2 bg-zinc-950 border-t border-zinc-800 flex flex-wrap gap-1.5">
+                                <button onclick="runCommand('whoami')" class="px-2 py-0.5 rounded bg-zinc-900 hover:bg-emerald-500/20 text-emerald-300 border border-zinc-800 text-xs font-mono transition">whoami</button>
+                                <button onclick="runCommand('projects')" class="px-2 py-0.5 rounded bg-zinc-900 hover:bg-emerald-500/20 text-emerald-300 border border-zinc-800 text-xs font-mono transition">projects</button>
+                                <button onclick="runCommand('skills')" class="px-2 py-0.5 rounded bg-zinc-900 hover:bg-emerald-500/20 text-emerald-300 border border-zinc-800 text-xs font-mono transition">skills</button>
+                                <button onclick="runCommand('target')" class="px-2 py-0.5 rounded bg-zinc-900 hover:bg-emerald-500/20 text-emerald-300 border border-zinc-800 text-xs font-mono transition">target</button>
+                                <button onclick="runCommand('contact')" class="px-2 py-0.5 rounded bg-zinc-900 hover:bg-emerald-500/20 text-emerald-300 border border-zinc-800 text-xs font-mono transition">contact</button>
+                                <button onclick="runCommand('clear')" class="px-2 py-0.5 rounded bg-zinc-900 hover:bg-rose-500/20 text-rose-300 border border-zinc-800 text-xs font-mono transition">clear</button>
+                            </div>
+
+                            <!-- Terminal Form Input -->
+                            <form onsubmit="handleTerminalSubmit(event)" class="bg-zinc-950 px-4 py-2.5 border-t border-zinc-800 flex items-center space-x-2">
+                                <span class="font-mono text-xs text-emerald-400 shrink-0">kevin@estiam:~$</span>
+                                <input id="terminal-input" type="text" placeholder="Entrez une commande (ex: target)..." autocomplete="off"
+                                    class="w-full bg-transparent text-zinc-100 font-mono text-xs focus:outline-none placeholder-zinc-600">
+                                <button type="submit" class="text-xs font-mono px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30 border border-emerald-500/30 transition">
+                                    Run
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 2. PROFIL & TRAJECTOIRE MIAGE ==================== -->
+        <section id="profil" class="py-20 border-b border-zinc-200 dark:border-zinc-900 bg-zinc-50/70 dark:bg-black transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center space-x-2 text-emerald-600 dark:text-emerald-400 font-mono text-xs uppercase tracking-wider mb-2 font-semibold">
+                        <span>01 // PROFIL PROFESSIONNEL & ÉTUDES</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-zinc-950 dark:text-white">Trajectoire Académique & Expertise IT</h2>
+                    <p class="mt-2 text-zinc-600 dark:text-zinc-400 text-sm">
+                        De la maîtrise des infrastructures réseaux et systèmes à l'ESTIAM Paris vers le pilotage des systèmes d'information en MIAGE.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Carte 1 : ESTIAM BTS SIO SISR -->
+                    <div class="p-6 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 hover:border-emerald-500/40 transition space-y-4 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-xl font-mono">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-mono text-emerald-700 dark:text-emerald-400 uppercase font-semibold">Formation en cours</span>
+                            <h3 class="text-lg font-bold text-zinc-950 dark:text-white mt-0.5">BTS SIO SISR — ESTIAM Paris</h3>
+                            <p class="text-xs text-zinc-500 dark:text-zinc-400 font-mono mt-1">En Alternance (Entreprise / Campus Paris)</p>
+                        </div>
+                        <p class="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                            Solutions d'Infrastructure, Systèmes et Réseaux. Apprentissage pratique axé sur l'administration réseau, la virtualisation, le maintien en condition opérationnelle (MCO) et la sécurité informatique.
+                        </p>
+                        <div class="pt-2 border-t border-zinc-100 dark:border-zinc-900 flex flex-wrap gap-1.5 font-mono text-[11px]">
+                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300">ESTIAM</span>
+                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300">SISR</span>
+                            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-semibold">Alternance</span>
+                        </div>
+                    </div>
+
+                    <!-- Carte 2 : Objectif Licence 3 MIAGE -->
+                    <div class="p-6 rounded-2xl bg-white dark:bg-zinc-950 border border-emerald-500/50 shadow-sm transition space-y-4 relative overflow-hidden">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-xl font-mono">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-mono text-emerald-700 dark:text-emerald-400 uppercase font-semibold">Prochaine Étape</span>
+                            <h3 class="text-lg font-bold text-zinc-950 dark:text-white mt-0.5">Licence 3 MIAGE</h3>
+                            <p class="text-xs text-zinc-500 dark:text-zinc-400 font-mono mt-1">Poursuite d'études post-BTS</p>
+                        </div>
+                        <p class="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                            Méthodes Informatiques Appliquées à la Gestion des Entreprises. Passerelle naturelle pour consolider l'ingénierie logicielle, la modélisation de données et la conduite de projets informatiques.
+                        </p>
+                        <div class="pt-2 border-t border-zinc-100 dark:border-zinc-900 flex flex-wrap gap-1.5 font-mono text-[11px]">
+                            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 font-semibold">Bac+3</span>
+                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300">Gouvernance SI</span>
+                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300">Ingénierie</span>
+                        </div>
+                    </div>
+
+                    <!-- Carte 3 : Master MIAGE -->
+                    <div class="p-6 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 hover:border-cyan-500/40 transition space-y-4 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-600 dark:text-cyan-400 text-xl font-mono">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-mono text-cyan-700 dark:text-cyan-400 uppercase font-semibold">Ambition Long Terme</span>
+                            <h3 class="text-lg font-bold text-zinc-950 dark:text-white mt-0.5">Master MIAGE (Bac+5)</h3>
+                            <p class="text-xs text-zinc-500 dark:text-zinc-400 font-mono mt-1">Architecture & Conseil en SI</p>
+                        </div>
+                        <p class="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                            Acquérir une double casquette d'Architecte Systèmes d'Information et de Consultant SI. Maîtriser l'alignement stratégique entre technologies de pointe et besoins opérationnels d'entreprise.
+                        </p>
+                        <div class="pt-2 border-t border-zinc-100 dark:border-zinc-900 flex flex-wrap gap-1.5 font-mono text-[11px]">
+                            <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-800 dark:text-cyan-300 font-semibold">Bac+5</span>
+                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300">Architecture SI</span>
+                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300">Audit & Sécurité</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 3. PROJETS SISR & LABS TECHNIQUES ==================== -->
+        <section id="projets" class="py-20 border-b border-zinc-200 dark:border-zinc-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div class="max-w-3xl">
+                        <div class="inline-flex items-center space-x-2 text-emerald-600 dark:text-emerald-400 font-mono text-xs uppercase tracking-wider mb-2 font-semibold">
+                            <span>02 // SITUATIONS PROFESSIONNELLES & LABS E4 / E5</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-zinc-950 dark:text-white">Projets Techniques SISR</h2>
+                        <p class="mt-2 text-zinc-600 dark:text-zinc-400 text-sm">
+                            Infrastructures déployées en laboratoire et en alternance avec extraits techniques (scripts, requêtes WQL, topologies).
+                        </p>
+                    </div>
+
+                    <!-- Filters -->
+                    <div class="flex flex-wrap gap-2" id="project-filters">
+                        <button onclick="filterProjects('all')" data-filter="all" class="filter-btn active px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-emerald-600 text-white transition">
+                            Tous (3)
+                        </button>
+                        <button onclick="filterProjects('network')" data-filter="network" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500 transition">
+                            Réseau & Pare-feu
+                        </button>
+                        <button onclick="filterProjects('system')" data-filter="system" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500 transition">
+                            Windows / SCCM
+                        </button>
+                        <button onclick="filterProjects('script')" data-filter="script" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500 transition">
+                            Linux & Scripting
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Projects Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="projects-grid">
+
+                    <!-- Projet 1 : pfSense & Proxmox -->
+                    <div data-category="network" class="project-card rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 hover:border-emerald-500/50 transition-all flex flex-col justify-between overflow-hidden shadow-sm group">
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center justify-between font-mono text-xs">
+                                <span class="px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 font-semibold">Lab E4 / E5</span>
+                                <span class="text-zinc-500 dark:text-zinc-400">Proxmox / pfSense</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-zinc-950 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition">
+                                Segmentation VLAN & Filtrage Pare-feu pfSense
+                            </h3>
+                            <p class="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                                Mise en œuvre d'une architecture virtualisée sous Proxmox VE avec segmentation 802.1Q (Admin, Postes, DMZ) et durcissement des flux par pfSense (NAT, règles inter-VLAN, DHCP).
+                            </p>
+                            <div class="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 font-mono text-[11px] text-zinc-700 dark:text-zinc-300 space-y-1">
+                                <div><span class="text-emerald-600 dark:text-emerald-400 font-bold">VLAN 10 :</span> Administration (192.168.10.0/24)</div>
+                                <div><span class="text-emerald-600 dark:text-emerald-400 font-bold">VLAN 20 :</span> Utilisateurs (192.168.20.0/24)</div>
+                                <div><span class="text-emerald-600 dark:text-emerald-400 font-bold">VLAN 30 :</span> DMZ Services (172.16.30.0/24)</div>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <button onclick="openProjectModal('proxmox')" class="w-full py-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-900 hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-500 dark:hover:text-black font-mono text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition flex items-center justify-center gap-2 border border-zinc-200 dark:border-zinc-800">
+                                <span>Consulter la fiche technique</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projet 2 : SCCM WQL & Active Directory -->
+                    <div data-category="system" class="project-card rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 hover:border-emerald-500/50 transition-all flex flex-col justify-between overflow-hidden shadow-sm group">
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center justify-between font-mono text-xs">
+                                <span class="px-2.5 py-0.5 rounded bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-500/20 font-semibold">Alternance & Lab</span>
+                                <span class="text-zinc-500 dark:text-zinc-400">WinServer / MECM</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-zinc-950 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition">
+                                Télédistribution SCCM & Requêtes Dynamiques WQL
+                            </h3>
+                            <p class="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                                Structuration d'annuaire Active Directory, sécurisation par stratégies de groupe (GPO) et conception de Device Collections dynamiques sous SCCM basées sur des requêtes WQL.
+                            </p>
+                            <div class="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 font-mono text-[11px] text-zinc-700 dark:text-zinc-300 space-y-1">
+                                <div><span class="text-cyan-600 dark:text-cyan-400 font-bold">Ciblage :</span> OS Windows 11 / OU Métiers</div>
+                                <div><span class="text-cyan-600 dark:text-cyan-400 font-bold">Action :</span> Déploiement silencieux MSI/EXE</div>
+                                <div><span class="text-cyan-600 dark:text-cyan-400 font-bold">Rapports :</span> Suivi conformité & déploiement</div>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <button onclick="openProjectModal('sccm')" class="w-full py-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-900 hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-500 dark:hover:text-black font-mono text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition flex items-center justify-center gap-2 border border-zinc-200 dark:border-zinc-800">
+                                <span>Consulter la fiche technique</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Projet 3 : Bash Script setup_workstation.sh -->
+                    <div data-category="script" class="project-card rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 hover:border-emerald-500/50 transition-all flex flex-col justify-between overflow-hidden shadow-sm group">
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center justify-between font-mono text-xs">
+                                <span class="px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 font-semibold">Scripting Bash</span>
+                                <span class="text-zinc-500 dark:text-zinc-400">Debian / Ubuntu</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-zinc-950 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition">
+                                Automatisation Post-Install (setup_workstation.sh)
+                            </h3>
+                            <p class="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                                Script d'industrialisation et de durcissement initial de stations/serveurs Linux : création automatisée d'utilisateurs, gestion fine des droits ACL, verrouillage SSH et pare-feu UFW.
+                            </p>
+                            <div class="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 font-mono text-[11px] text-zinc-700 dark:text-zinc-300 space-y-1">
+                                <div><span class="text-emerald-600 dark:text-emerald-400 font-bold">Sécurité :</span> Vérification UID root (0)</div>
+                                <div><span class="text-emerald-600 dark:text-emerald-400 font-bold">Réseau :</span> UFW default deny incoming</div>
+                                <div><span class="text-emerald-600 dark:text-emerald-400 font-bold">Audit :</span> Journalisation dans /var/log/</div>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <button onclick="openProjectModal('bash')" class="w-full py-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-900 hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-500 dark:hover:text-black font-mono text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition flex items-center justify-center gap-2 border border-zinc-200 dark:border-zinc-800">
+                                <span>Consulter la fiche technique</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 4. TABLEAU DE SYNTHÈSE E4 (BLOC 1) ==================== -->
+        <section id="tableau-e4" class="py-20 border-b border-zinc-200 dark:border-zinc-900 bg-zinc-50/70 dark:bg-black transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center space-x-2 text-emerald-600 dark:text-emerald-400 font-mono text-xs uppercase tracking-wider mb-2 font-semibold">
+                        <span>03 // GRILLE OFFICIELLE DU BLOC 1</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-zinc-950 dark:text-white">Tableau de Synthèse — Épreuve E4</h2>
+                    <p class="mt-2 text-zinc-600 dark:text-zinc-400 text-sm">
+                        Support et mise à disposition des services informatiques (croisement des situations professionnelles avec les 6 compétences obligatoires).
+                    </p>
+                </div>
+
+                <div class="overflow-x-auto rounded-2xl border border-zinc-200 dark:border-zinc-900 bg-white dark:bg-zinc-950 shadow-sm">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead class="bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-300 font-mono uppercase text-[11px] border-b border-zinc-200 dark:border-zinc-800">
+                            <tr>
+                                <th class="p-4 w-2/5">Compétences du Référentiel Officiel BTS SIO</th>
+                                <th class="p-3 text-center">Segmentation pfSense & Proxmox</th>
+                                <th class="p-3 text-center">SCCM & Requêtes WQL</th>
+                                <th class="p-3 text-center">Scripting Bash setup.sh</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-zinc-200 dark:divide-zinc-900 text-zinc-700 dark:text-zinc-300">
+                            <tr class="hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition">
+                                <td class="p-4 font-medium text-zinc-900 dark:text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-server text-emerald-600 dark:text-emerald-400 text-xs"></i>
+                                    <span>B1.1 — Gérer le patrimoine informatique</span>
+                                </td>
+                                <td class="p-3 text-center"><span class="inline-flex w-6 h-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"><i class="fa-solid fa-check"></i></span></td>
+                                <td class="p-3 text-center"><span class="inline-flex w-6 h-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"><i class="fa-solid fa-check"></i></span></td>
+                                <td class="p-3 text-center"><span class="inline-flex w-6 h-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"><i class="fa-solid fa-check"></i></span></td>
+                            </tr>
+                            <tr class="hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition">
+                                <td class="p-4 font-medium text-zinc-900 dark:text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-headset text-cyan-600 dark:text-cyan-400 text-xs"></i>
+                                    <span>B1.2 — Répondre aux incidents et aux demandes d'assistance</span>
+                                </td>
+                                <td class="p-3 text-center text-zinc-400 dark:text-zinc-600">—</td>
+                                <td class="p-3 text-center"><span class="inline-flex w-6 h-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"><i class="fa-solid fa-check"></i></span></td>
+                                <td class="p-3 text-center text-zinc-400 dark:text-zinc-600">—</td>
+                            </tr>
+                            <tr class="hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition">
+                                <td class="p-4 font-medium text-zinc-900 dark:text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-globe text-indigo-600 dark:text-indigo-400 text-xs"></i>
+                                    <span>B1.3 — Développer la présence en ligne de l'organisation</span>
+                                </td>
+                                <td class="p-3 text-center"><span class="inline-flex w-6 h-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"><i class="fa-solid fa-check"></i></span></td>
+                                <td class="p-3 text-center text-zinc-400 dark:text-zinc-600">—</td>
+                                <td class="p-3 text-center text-zinc-400 dark:text-zinc-600">—</td>
+                            </tr>
+                            <tr class="hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition">
+                                <td class="p-4 font-medium text-zinc-900 dark:text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-list-check text-amber-600 dark:text-amber-400 text-xs"></i>
+                                    <span>B1.4 — Travailler en mode projet</span>
+                                </td>
+                                <td class="p-3 text-center"><span class="inline-flex w-6 h-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"><i class="fa-solid fa-check"></i></span></td>
+                                <td class="p-3 text-center"><span class="inline-flex w-6 h-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"><i class="fa-solid fa-check"></i></span></td>
+                                <td class="p-3 text-center"><span class="inline-flex w-6 h-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"><i class="fa-solid fa-check"></i></span></td>
+                            </tr>
+                            <tr class="hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition">
+                                <td class="p-4 font-medium text-zinc-900 dark:text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-network-wired text-emerald-600 dark:text-emerald-400 text-xs"></i>
+                                    <span>B1.5 — Mettre à disposition des utilisateurs un service informatique</span>
+                                </td>
+                                <td class="p-3 text-center"><span class="inline-flex w-6 h-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"><i class="fa-solid fa-check"></i></span></td>
+                                <td class="p-3 text-center"><span class="inline-flex w-6 h-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"><i class="fa-solid fa-check"></i></span></td>
+                                <td class="p-3 text-center"><span class="inline-flex w-6 h-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"><i class="fa-solid fa-check"></i></span></td>
+                            </tr>
+                            <tr class="hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition">
+                                <td class="p-4 font-medium text-zinc-900 dark:text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-satellite-dish text-rose-600 dark:text-rose-400 text-xs"></i>
+                                    <span>B1.6 — Organiser son développement professionnel (Veille)</span>
+                                </td>
+                                <td class="p-3 text-center"><span class="inline-flex w-6 h-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"><i class="fa-solid fa-check"></i></span></td>
+                                <td class="p-3 text-center"><span class="inline-flex w-6 h-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"><i class="fa-solid fa-check"></i></span></td>
+                                <td class="p-3 text-center"><span class="inline-flex w-6 h-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold"><i class="fa-solid fa-check"></i></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 5. VEILLE TECHNOLOGIQUE QUOTIDIENNE (1-22 OCTOBRE) ==================== -->
+        <section id="veille" class="py-20 border-b border-zinc-200 dark:border-zinc-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+                
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+                    <div class="max-w-3xl">
+                        <div class="inline-flex items-center space-x-2 text-emerald-600 dark:text-emerald-400 font-mono text-xs uppercase tracking-wider mb-2 font-semibold">
+                            <span>04 // DISPOSITIF DE VEILLE QUOTIDIENNE & SÉCURITÉ OPÉRATIONNELLE</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-zinc-950 dark:text-white">Veille Technologique & Vulnérabilités</h2>
+                        <p class="mt-2 text-zinc-600 dark:text-zinc-400 text-sm">
+                            Exactement <strong class="text-emerald-600 dark:text-emerald-400">1 article technique phare par jour du 1er au 22 octobre 2026</strong>. Sources officielles : <strong class="text-zinc-900 dark:text-white">ANSSI, CERT-FR, BleepingComputer et IT-Connect</strong>. Lecture complète sur place sans redirection externe.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                        <div class="px-3.5 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 font-mono text-xs flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span id="veille-count-badge">22 articles répertoriés (1 - 22 Oct 2026)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Methodology / Oral Pillars -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono">
+                    <div class="p-4 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 shadow-sm">
+                        <div class="text-emerald-600 dark:text-emerald-400 font-bold mb-1"><i class="fa-solid fa-rss mr-1.5"></i>1. SOURCING OFFICIEL</div>
+                        <p class="text-zinc-600 dark:text-zinc-400 font-sans text-xs">Flux certifiés ANSSI, CERT-FR, BleepingComputer & IT-Connect.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 shadow-sm">
+                        <div class="text-cyan-600 dark:text-cyan-400 font-bold mb-1"><i class="fa-solid fa-clock mr-1.5"></i>2. 1 NEWS PAR JOUR</div>
+                        <p class="text-zinc-600 dark:text-zinc-400 font-sans text-xs">Sélection exclusive de la menace ou directive prioritaire du jour.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 shadow-sm">
+                        <div class="text-indigo-600 dark:text-indigo-400 font-bold mb-1"><i class="fa-solid fa-shield-virus mr-1.5"></i>3. ANALYSE CRITICITÉ</div>
+                        <p class="text-zinc-600 dark:text-zinc-400 font-sans text-xs">Évaluation CVSS, ciblage des patchs et durcissement des GPO.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 shadow-sm">
+                        <div class="text-amber-600 dark:text-amber-400 font-bold mb-1"><i class="fa-solid fa-book-open mr-1.5"></i>4. LECTURE SUR PLACE</div>
+                        <p class="text-zinc-600 dark:text-zinc-400 font-sans text-xs">Synthèse complète & encadré Impact SISR dans le portfolio.</p>
+                    </div>
+                </div>
+
+                <!-- Search and Source Filters -->
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 shadow-sm">
+                    <div class="relative w-full md:w-96">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-zinc-400 text-xs"></i>
+                        <input id="veille-search-input" type="text" oninput="filterVeilleCards()" placeholder="Rechercher une alerte, CVE, mot-clé, date..."
+                            class="w-full pl-9 pr-4 py-2 rounded-xl bg-white dark:bg-black border border-zinc-300 dark:border-zinc-800 text-xs text-zinc-900 dark:text-white placeholder-zinc-400 focus:outline-none focus:border-emerald-500 font-mono transition">
+                    </div>
+                    <div class="flex flex-wrap items-center gap-1.5 w-full md:w-auto" id="veille-source-filters">
+                        <button onclick="setVeilleSourceFilter('all')" data-source="all" class="veille-src-btn active px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-emerald-600 text-white transition">Tous (22)</button>
+                        <button onclick="setVeilleSourceFilter('ANSSI')" data-source="ANSSI" class="veille-src-btn px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-white dark:bg-black text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500 transition">ANSSI</button>
+                        <button onclick="setVeilleSourceFilter('CERT-FR')" data-source="CERT-FR" class="veille-src-btn px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-white dark:bg-black text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500 transition">CERT-FR</button>
+                        <button onclick="setVeilleSourceFilter('BleepingComputer')" data-source="BleepingComputer" class="veille-src-btn px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-white dark:bg-black text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500 transition">BleepingComputer</button>
+                        <button onclick="setVeilleSourceFilter('IT-Connect')" data-source="IT-Connect" class="veille-src-btn px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-white dark:bg-black text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500 transition">IT-Connect</button>
+                    </div>
+                </div>
+
+                <!-- Veille Articles Dynamic Grid (22 Days) -->
+                <div id="veille-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 6. CONTACT ==================== -->
+        <section id="contact" class="py-20 bg-zinc-50/70 dark:bg-black transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Left Contact Info -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-flex items-center space-x-2 text-emerald-600 dark:text-emerald-400 font-mono text-xs uppercase tracking-wider font-semibold">
+                            <span>05 // ÉCHANGE PROFESSIONNEL & ÉTUDES</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-zinc-950 dark:text-white">Contact & Réseaux</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
+                            Disponible pour un échange avec le jury du BTS SIO, des recruteurs en ingénierie systèmes & réseaux ou les équipes pédagogiques des formations Licence 3 et Master MIAGE.
+                        </p>
+
+                        <div class="space-y-4 pt-2">
+                            <!-- Official Email Box with Direct Copy Feature -->
+                            <div class="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
+                                <div class="flex items-center space-x-3.5">
+                                    <div class="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-lg shrink-0">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400">Email Officiel ESTIAM</div>
+                                        <a href="mailto:kevin.haroutunian@estiam.com" class="text-sm font-mono font-bold text-zinc-950 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition break-all">
+                                            kevin.haroutunian@estiam.com
+                                        </a>
+                                    </div>
+                                </div>
+                                <button onclick="copyEmailToClipboard()" class="px-3.5 py-2 rounded-xl bg-zinc-100 dark:bg-zinc-900 hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-500 dark:hover:text-black text-xs font-mono font-semibold text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-800 transition flex items-center justify-center gap-1.5 shrink-0">
+                                    <i class="fa-regular fa-copy"></i>
+                                    <span id="copy-btn-label">Copier</span>
+                                </button>
+                            </div>
+
+                            <!-- Campus Location -->
+                            <div class="p-4 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 flex items-center space-x-3.5 shadow-sm">
+                                <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-600 dark:text-cyan-400 shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400">Campus & Mobilité</div>
+                                    <div class="text-xs font-semibold text-zinc-900 dark:text-white">ESTIAM Paris • Île-de-France</div>
+                                </div>
+                            </div>
+
+                            <!-- Social / Professional Links -->
+                            <div class="grid grid-cols-2 gap-3.5">
+                                <a href="mailto:kevin.haroutunian@estiam.com" class="p-4 rounded-xl bg-white dark:bg-zinc-950 hover:bg-zinc-100 dark:hover:bg-zinc-900 border border-zinc-200 dark:border-zinc-900 flex items-center space-x-3 transition shadow-sm">
+                                    <i class="fa-brands fa-linkedin text-2xl text-emerald-600 dark:text-emerald-400"></i>
+                                    <div>
+                                        <div class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400">LinkedIn</div>
+                                        <div class="text-xs font-semibold text-zinc-900 dark:text-white">K. HAROUTUNIAN</div>
+                                    </div>
+                                </a>
+                                <div class="p-4 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 flex items-center space-x-3 shadow-sm">
+                                    <i class="fa-brands fa-github text-2xl text-cyan-600 dark:text-cyan-400"></i>
+                                    <div>
+                                        <div class="text-[11px] font-mono text-zinc-500 dark:text-zinc-400">GitHub Labs</div>
+                                        <div class="text-xs font-semibold text-zinc-900 dark:text-white">@kharoutunian</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Message Form -->
+                    <div class="lg:col-span-7">
+                        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 space-y-5 shadow-sm">
+                            <div class="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-900 pb-4">
+                                <h3 class="text-lg font-bold text-zinc-950 dark:text-white">Transmettre un message</h3>
+                                <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5 font-semibold">
+                                    <i class="fa-solid fa-lock"></i>
+                                    <span>Direct DSI / Contact</span>
+                                </span>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="contact-name" class="block text-xs font-mono text-zinc-700 dark:text-zinc-300 mb-2">NOM & PRÉNOM *</label>
+                                    <input type="text" id="contact-name" required placeholder="Ex: Jean Dupont"
+                                        class="w-full px-4 py-2.5 rounded-xl bg-zinc-50 dark:bg-black border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-900 dark:text-white placeholder-zinc-400 focus:outline-none focus:border-emerald-500 transition font-mono">
+                                </div>
+                                <div>
+                                    <label for="contact-email" class="block text-xs font-mono text-zinc-700 dark:text-zinc-300 mb-2">VOTRE EMAIL *</label>
+                                    <input type="email" id="contact-email" required placeholder="Ex: contact@entreprise.fr"
+                                        class="w-full px-4 py-2.5 rounded-xl bg-zinc-50 dark:bg-black border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-900 dark:text-white placeholder-zinc-400 focus:outline-none focus:border-emerald-500 transition font-mono">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="contact-subject" class="block text-xs font-mono text-zinc-700 dark:text-zinc-300 mb-2">OBJET DE LA DEMANDE *</label>
+                                <select id="contact-subject" required
+                                    class="w-full px-4 py-2.5 rounded-xl bg-zinc-50 dark:bg-black border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-900 dark:text-white focus:outline-none focus:border-emerald-500 transition font-mono">
+                                    <option value="Jury BTS SIO SISR — Épreuve E4 / E5">Jury BTS SIO SISR — Épreuve E4 / E5</option>
+                                    <option value="Candidature Licence 3 / Master MIAGE">Candidature Licence 3 / Master MIAGE</option>
+                                    <option value="Opportunité Alternance / Administration Réseaux">Opportunité Alternance / Emploi SISR</option>
+                                    <option value="Autre échange technique">Autre échange technique</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="contact-message" class="block text-xs font-mono text-zinc-700 dark:text-zinc-300 mb-2">MESSAGE *</label>
+                                <textarea id="contact-message" rows="4" required placeholder="Bonjour Kevin, je vous contacte concernant..."
+                                    class="w-full px-4 py-2.5 rounded-xl bg-zinc-50 dark:bg-black border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-900 dark:text-white placeholder-zinc-400 focus:outline-none focus:border-emerald-500 transition font-mono"></textarea>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
+                                <span class="text-[11px] text-zinc-500 font-mono">Notification directe vers kevin.haroutunian@estiam.com</span>
+                                <button type="submit" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold font-mono text-xs shadow-sm transition flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                    <span>Envoyer le message</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-white dark:bg-black border-t border-zinc-200 dark:border-zinc-900 py-8 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500">
+            <div>
+                © 2026 <span class="text-zinc-900 dark:text-zinc-200 font-semibold">Kevin HAROUTUNIAN</span> — BTS SIO SISR (ESTIAM Paris)
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-emerald-700 dark:text-emerald-400 font-medium"><i class="fa-solid fa-shield-halved mr-1"></i>Conforme Référentiel E4 / E5</span>
+                <a href="#accueil" class="text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Haut de page ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MODALE 1 : LECTURE INTÉGRALE DE VEILLE ==================== -->
+    <div id="modal-veille" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-2xl max-w-2xl w-full max-h-[88vh] flex flex-col overflow-hidden shadow-2xl transition-colors">
+            
+            <!-- Header Modale Veille -->
+            <div class="flex items-start justify-between p-6 border-b border-zinc-100 dark:border-zinc-900 bg-zinc-50 dark:bg-black">
+                <div class="space-y-1.5">
+                    <div class="flex items-center gap-2">
+                        <span id="modal-veille-category" class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-800 dark:text-emerald-400 border border-emerald-500/30 uppercase tracking-wider"></span>
+                        <span id="modal-veille-source" class="text-xs text-zinc-500 dark:text-zinc-400 font-mono"></span>
+                    </div>
+                    <h3 id="modal-veille-title" class="text-base sm:text-lg font-bold text-zinc-950 dark:text-white leading-snug"></h3>
+                    <p id="modal-veille-date" class="text-xs text-zinc-500 dark:text-zinc-400 font-mono"></p>
+                </div>
+                <button onclick="closeVeilleModal()" class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center transition shrink-0 ml-4">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Corps Modale Veille -->
+            <div class="p-6 overflow-y-auto space-y-5 text-zinc-700 dark:text-zinc-300 text-xs sm:text-sm leading-relaxed">
+                <!-- Encadré Spécifique E4 SISR -->
+                <div class="p-4 rounded-xl bg-zinc-50 dark:bg-black border border-emerald-500/40 space-y-2">
+                    <h4 class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        Impact & Analyse Opérationnelle SISR
+                    </h4>
+                    <p id="modal-veille-impact" class="text-xs text-zinc-800 dark:text-zinc-200 font-sans leading-relaxed"></p>
+                </div>
+
+                <!-- Texte Intégral -->
+                <div class="space-y-2">
+                    <h4 class="text-xs font-mono font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">Contenu Intégral & Recommandations Techniques</h4>
+                    <div id="modal-veille-fulltext" class="text-xs leading-relaxed text-zinc-700 dark:text-zinc-300 font-sans space-y-2"></div>
+                </div>
+            </div>
+
+            <!-- Footer Modale Veille -->
+            <div class="p-4 bg-zinc-50 dark:bg-black border-t border-zinc-100 dark:border-zinc-900 flex items-center justify-between">
+                <span class="text-[11px] font-mono text-zinc-400">Document interne • Veille Épreuve E4</span>
+                <button onclick="closeVeilleModal()" class="px-4 py-2 rounded-xl bg-zinc-200 dark:bg-zinc-900 hover:bg-zinc-300 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 font-mono text-xs transition">
+                    Fermer la synthèse
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==================== MODALE 2 : DÉTAILS TECHNIQUES PROJETS (E4/E5) ==================== -->
+    <div id="modal-project" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-2xl max-w-3xl w-full max-h-[88vh] flex flex-col overflow-hidden shadow-2xl transition-colors">
+            
+            <div class="flex items-center justify-between p-6 border-b border-zinc-100 dark:border-zinc-900 bg-zinc-50 dark:bg-black">
+                <div class="flex items-center space-x-2.5">
+                    <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                    <h3 id="modal-project-title" class="text-sm sm:text-base font-bold text-zinc-950 dark:text-white font-mono">Fiche Technique Projet</h3>
+                </div>
+                <button onclick="closeProjectModal()" class="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+
+            <div id="modal-project-body" class="p-6 overflow-y-auto space-y-5 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
+                <!-- Injecté dynamiquement par JS -->
+            </div>
+
+            <div class="p-4 bg-zinc-50 dark:bg-black border-t border-zinc-100 dark:border-zinc-900 flex justify-end">
+                <button onclick="closeProjectModal()" class="px-4 py-2 rounded-xl bg-zinc-200 dark:bg-zinc-900 hover:bg-zinc-300 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 font-mono text-xs transition">
+                    Fermer la fiche
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==================== TOAST NOTIFICATION ==================== -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 hidden items-center space-x-3 px-5 py-3.5 rounded-xl bg-white dark:bg-zinc-950 border border-emerald-500/50 text-zinc-950 dark:text-white shadow-xl">
+        <i class="fa-solid fa-circle-check text-emerald-500 text-lg"></i>
+        <span id="toast-message" class="text-xs font-mono font-medium">Notification système</span>
+    </div>
+
+    <!-- ==================== LOGIQUE JAVASCRIPT & SWITCH THEME ==================== -->
+    <script>
+        // 1. Initialisation & Switch Blanc Pur / Noir OLED
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+                updateThemeToggleUI(true);
+            } else {
+                document.documentElement.classList.remove('dark');
+                updateThemeToggleUI(false);
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeToggleUI(isDark);
+        }
+
+        function updateThemeToggleUI(isDark) {
+            const icon = document.getElementById('theme-icon');
+            const label = document.getElementById('theme-label');
+            if (isDark) {
+                icon.className = 'fa-solid fa-sun text-sm text-amber-400';
+                label.textContent = 'Mode Blanc';
+            } else {
+                icon.className = 'fa-solid fa-moon text-sm text-zinc-700';
+                label.textContent = 'Mode OLED';
+            }
+        }
+
+        // 2. Menu Mobile
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            menu.classList.toggle('hidden');
+            icon.className = menu.classList.contains('hidden') ? 'fa-solid fa-bars text-sm' : 'fa-solid fa-xmark text-sm';
+        }
+
+        // 3. Navigation Active au Scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['accueil', 'profil', 'projets', 'tableau-e4', 'veille', 'contact'];
+            let current = 'accueil';
+            for (const sec of sections) {
+                const el = document.getElementById(sec);
+                if (el && window.scrollY >= el.offsetTop - 140) {
+                    current = sec;
+                }
+            }
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.toggle('active', link.getAttribute('data-section') === current);
+            });
+        });
+
+        // 4. Terminal Interactif CLI
+        function handleTerminalSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('terminal-input');
+            const cmd = input.value.trim().toLowerCase();
+            if (!cmd) return;
+            runCommand(cmd);
+            input.value = '';
+        }
+
+        function runCommand(cmd) {
+            const output = document.getElementById('terminal-output');
+            const screen = document.getElementById('terminal-screen');
+
+            if (cmd === 'clear') {
+                output.innerHTML = '<div class="text-zinc-500 text-[11px]">Terminal nettoyé. Tapez <span class="text-emerald-400">help</span> pour voir les commandes.</div>';
+                return;
+            }
+
+            let res = '';
+            switch(cmd) {
+                case 'help':
+                    res = `
+                        <div class="text-xs space-y-1 text-zinc-300">
+                            <div><span class="text-emerald-400 font-bold">whoami</span>   — Identité, formation ESTIAM Paris</div>
+                            <div><span class="text-emerald-400 font-bold">projects</span> — Liste des 3 projets SISR</div>
+                            <div><span class="text-emerald-400 font-bold">skills</span>   — Systèmes, réseaux, virtualisation & scripting</div>
+                            <div><span class="text-emerald-400 font-bold">target</span>   — Objectif académique : L3 MIAGE & Master MIAGE</div>
+                            <div><span class="text-emerald-400 font-bold">contact</span>  — Email kevin.haroutunian@estiam.com</div>
+                            <div><span class="text-emerald-400 font-bold">clear</span>    — Nettoyer le terminal</div>
+                        </div>`;
+                    break;
+                case 'whoami':
+                    res = `
+                        <div class="text-xs text-zinc-300 space-y-0.5">
+                            <div><span class="text-emerald-400 font-bold">Identité :</span> Kevin HAROUTUNIAN</div>
+                            <div><span class="text-emerald-400 font-bold">Formation :</span> BTS SIO option SISR à l'ESTIAM Paris</div>
+                            <div><span class="text-emerald-400 font-bold">Statut :</span> Alternant en Systèmes & Réseaux</div>
+                        </div>`;
+                    break;
+                case 'projects':
+                    res = `
+                        <div class="text-xs text-zinc-300 space-y-0.5">
+                            <div>1. <span class="text-emerald-400">Segmentation pfSense & Proxmox VE</span> (VLANs, DMZ)</div>
+                            <div>2. <span class="text-emerald-400">SCCM & Requêtes WQL</span> (Déploiement ciblé d'applications)</div>
+                            <div>3. <span class="text-emerald-400">setup_workstation.sh</span> (Provisioning Bash & Sécurité Linux)</div>
+                        </div>`;
+                    break;
+                case 'skills':
+                    res = `
+                        <div class="text-xs text-zinc-300 space-y-0.5">
+                            <div>• <span class="text-cyan-400">Virtualisation :</span> Proxmox VE, Hyper-V, LXC</div>
+                            <div>• <span class="text-cyan-400">Systèmes :</span> Windows Server (AD DS, GPO), Debian/Ubuntu</div>
+                            <div>• <span class="text-cyan-400">Réseaux :</span> pfSense, VLAN 802.1Q, DNS/DHCP, NAT, VPN</div>
+                            <div>• <span class="text-cyan-400">Scripting :</span> Bash, PowerShell, requêtes WQL SCCM</div>
+                        </div>`;
+                    break;
+                case 'target':
+                    res = `
+                        <div class="text-xs text-emerald-300 space-y-0.5">
+                            <div>Passerelle visée : <strong class="text-white">BTS SIO SISR (ESTIAM Paris)</strong> ➔ <strong class="text-white">Licence 3 MIAGE</strong> ➔ <strong class="text-white">Master MIAGE</strong>.</div>
+                            <div class="text-zinc-400">Spécialisation en architecture et gouvernance des Systèmes d'Information.</div>
+                        </div>`;
+                    break;
+                case 'contact':
+                    res = `
+                        <div class="text-xs text-zinc-300">
+                            Email officiel école : <a href="mailto:kevin.haroutunian@estiam.com" class="text-emerald-400 underline">kevin.haroutunian@estiam.com</a>
+                        </div>`;
+                    break;
+                default:
+                    res = `<div class="text-xs text-rose-400">bash: commande inconnue: "${cmd.replace(/</g, '&lt;')}". Tapez <span class="text-emerald-400">help</span>.</div>`;
+            }
+
+            const item = document.createElement('div');
+            item.className = 'space-y-1 pt-1.5 border-t border-zinc-800';
+            item.innerHTML = `
+                <div class="text-emerald-400">kevin@estiam:~$ <span class="text-white font-normal">${cmd.replace(/</g, '&lt;')}</span></div>
+                ${res}
+            `;
+            output.appendChild(item);
+            screen.scrollTop = screen.scrollHeight;
+        }
+
+        // 5. Filtrage Projets
+        function filterProjects(cat) {
+            document.querySelectorAll('#project-filters .filter-btn').forEach(btn => {
+                if (btn.getAttribute('data-filter') === cat) {
+                    btn.className = 'filter-btn active px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-emerald-600 text-white transition';
+                } else {
+                    btn.className = 'filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500 transition';
+                }
+            });
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                const c = card.getAttribute('data-category');
+                card.classList.toggle('hidden', cat !== 'all' && c !== cat);
+            });
+        }
+
+        // 6. Fiches Techniques Modales Projets
+        const projectModalContent = {
+            proxmox: {
+                title: "Fiche Technique // Segmentation VLANs & Pare-feu pfSense sous Proxmox VE",
+                html: `
+                    <div class="space-y-4">
+                        <div class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono text-emerald-800 dark:text-emerald-300">
+                            <strong>Contexte BTS SIO :</strong> Déploiement d'une architecture multi-niveaux pour isoler l'administration, les utilisateurs et la zone démilitarisée (DMZ).
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                            <div class="p-3.5 rounded-xl bg-zinc-50 dark:bg-black border border-zinc-200 dark:border-zinc-800">
+                                <h5 class="font-bold text-emerald-700 dark:text-emerald-400 font-mono mb-2">TOPOLOGIE VLANS</h5>
+                                <ul class="space-y-1 text-zinc-700 dark:text-zinc-300">
+                                    <li>• <strong>VLAN 10 (Admin) :</strong> 192.168.10.0/24 (Proxmox, AD)</li>
+                                    <li>• <strong>VLAN 20 (Users) :</strong> 192.168.20.0/24 (Clients DHCP)</li>
+                                    <li>• <strong>VLAN 30 (DMZ) :</strong> 172.16.30.0/24 (Serveurs Web/GLPI)</li>
+                                </ul>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-zinc-50 dark:bg-black border border-zinc-200 dark:border-zinc-800">
+                                <h5 class="font-bold text-cyan-700 dark:text-cyan-400 font-mono mb-2">COMPÉTENCES E4</h5>
+                                <ul class="space-y-1 text-zinc-700 dark:text-zinc-300">
+                                    <li>• B1.1 : Recenser les actifs réseaux et hôtes</li>
+                                    <li>• B1.4 : Planifier les tests de bascule</li>
+                                    <li>• B1.5 : Filtrer les flux inter-VLAN et NAT WAN</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="text-xs font-mono text-zinc-500 mb-1.5 uppercase">Configuration Bridge Proxmox (/etc/network/interfaces) :</h5>
+                            <pre class="p-3.5 rounded-xl bg-zinc-950 text-emerald-400 font-mono text-xs overflow-x-auto border border-zinc-800">auto vmbr1
+iface vmbr1 inet manual
+    bridge-ports eno2
+    bridge-stp off
+    bridge-fd 0
+    bridge-vlan-aware yes
+    bridge-vids 10 20 30</pre>
+                        </div>
+                    </div>`
+            },
+            sccm: {
+                title: "Fiche Technique // Télédistribution SCCM & Requêtes WQL Dynamiques",
+                html: `
+                    <div class="space-y-4">
+                        <div class="p-3.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono text-cyan-800 dark:text-cyan-300">
+                            <strong>Contexte Alternance :</strong> Automatisation du déploiement logiciel et conformité de parc via Microsoft Endpoint Configuration Manager (SCCM).
+                        </div>
+                        <div>
+                            <h5 class="text-xs font-mono text-zinc-500 mb-1.5 uppercase">Requête WQL Collection Dynamique (Windows 11 & OU Spécifique) :</h5>
+                            <pre class="p-3.5 rounded-xl bg-zinc-950 text-cyan-400 font-mono text-xs overflow-x-auto border border-zinc-800">SELECT SMS_R_System.ResourceID, SMS_R_System.Name, SMS_R_System.SystemOUName
+FROM  SMS_R_System
+WHERE SMS_R_System.SystemOUName = "CORP.ESTIAM.LOCAL/PARIS/COMPTA"
+  AND SMS_R_System.OperatingSystemNameandVersion LIKE "%Workstation 10.0%"</pre>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-zinc-50 dark:bg-black border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-700 dark:text-zinc-300">
+                            <strong>Validation E4 :</strong> Traitement d'incidents (B1.2), télédistribution silencieuse d'applications critiques (B1.5) et contrôle de conformité par inventaire matériel/logiciel (B1.1).
+                        </div>
+                    </div>`
+            },
+            bash: {
+                title: "Fiche Technique // Script Bash d'Automatisation (setup_workstation.sh)",
+                html: `
+                    <div class="space-y-4">
+                        <div class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono text-emerald-800 dark:text-emerald-300">
+                            <strong>Contexte Linux :</strong> Standardisation post-installation de serveurs et stations Debian 12 avec journalisation stricte.
+                        </div>
+                        <div>
+                            <h5 class="text-xs font-mono text-zinc-500 mb-1.5 uppercase">Extrait du script Bash (setup_workstation.sh) :</h5>
+                            <pre class="p-3.5 rounded-xl bg-zinc-950 text-emerald-400 font-mono text-xs overflow-x-auto border border-zinc-800">#!/usr/bin/env bash
+set -euo pipefail
+
+# 1. Vérification des droits root
+if [[ $EUID -ne 0 ]]; then
+   echo "[!] Ce script doit être exécuté en tant que root." >&2
+   exit 1
+fi
+
+# 2. Installation des paquets de durcissement
+apt-get update && apt-get install -y ufw fail2ban openssh-server
+
+# 3. Durcissement pare-feu local UFW
+ufw default deny incoming
+ufw default allow outgoing
+ufw allow 22/tcp comment 'SSH Administration'
+ufw --force enable
+
+echo "[+] Provisioning système terminé avec succès."</pre>
+                        </div>
+                    </div>`
+            }
+        };
+
+        function openProjectModal(key) {
+            const data = projectModalContent[key];
+            if (!data) return;
+            document.getElementById('modal-project-title').textContent = data.title;
+            document.getElementById('modal-project-body').innerHTML = data.html;
+            document.getElementById('modal-project').classList.remove('hidden');
+        }
+
+        function closeProjectModal() {
+            document.getElementById('modal-project').classList.add('hidden');
+        }
+
+        // ==================== 7. LES 22 ARTICLES DU 1ER AU 22 OCTOBRE 2026 ====================
+        const veilleArticlesList = [
+            {
+                id: "2026-10-22-anssi-hygiene-informatique",
+                date: "2026-10-22",
+                source: "ANSSI",
+                category: "Gouvernance & Référentiels",
+                title: "Publication de la Version Révisée du Guide d'Hygiène Informatique",
+                summary: "L'ANSSI met à jour ses 42 règles fondamentales en intégrant les architectures Cloud hybrides, l'authentification FIDO2/Passkeys et la gestion des identités machines.",
+                impact_sisr: "Révision de nos baselines de sécurité GPO sous Active Directory : obligation de proscrire NTLMv1/v2 au profit exclusif de Kerberos durci et suppression des protocoles d'administration en clair (Telnet, HTTP).",
+                full_text: "Face à l'évolution des vecteurs d'attaque ciblant les accès distants et les annuaires d'entreprise, l'ANSSI a publié la nouvelle mouture de son guide de référence. Ce document s'articule autour de la réduction de la surface d'exposition : segmentation réseau stricte, politique d'inventaire dynamique des actifs logiciels, et durcissement des stations d'administration (PAW). Pour les équipes d'exploitation SISR, ces recommandations constituent la base de conformité pour auditer les contrôleurs de domaine et préparer les certifications du SI."
+            },
+            {
+                id: "2026-10-21-cert-fr-cve-pfsense-freebsd",
+                date: "2026-10-21",
+                source: "CERT-FR",
+                category: "Alertes Équipements Réseau",
+                title: "CERTFR-2026-ALE-018 : Vulnérabilité Critique dans le Démon de Routage BGP/OSPF sous FreeBSD",
+                summary: "Une faille de corruption de mémoire dans le package de routage dynamique peut entraîner un déni de service distribué ou une exécution de code arbitraire sur les appliances de bordure.",
+                impact_sisr: "Sur nos clusters pfSense en production : désactivation temporaire de la redistribution des tables BGP non authentifiées par mot de passe MD5, et déploiement du correctif de sécurité officiel pfSense 2.7.3-p1.",
+                full_text: "Le CERT-FR informe les administrateurs de la découverte d'une faille critique (CVSS 9.4) affectant les démons de routage sous FreeBSD et déployés au sein d'environnements pfSense et OPNsense. Un attaquant émettant des paquets BGP malformés peut saturer la table de routage du kernel et provoquer le redémarrage inopiné de l'équipement de passerelle. Le bulletin préconise la mise à jour immédiate des binaires ou le filtrage des paquets TCP 179 aux seules adresses IP des pairs déclarés dans les tables d'interconnexion WAN."
+            },
+            {
+                id: "2026-10-20-bleeping-proxmox-pve-ransomware",
+                date: "2026-10-20",
+                source: "BleepingComputer",
+                category: "Menaces & Hyperviseurs",
+                title: "Nouvelle Souche de Ransomware Ciblant les Disques Virtuels sous Proxmox VE (QEMU/KVM)",
+                summary: "Des cybercriminels automatisent l'exploitation de sessions de management API exposées pour suspendre les VM et chiffrer directement les pools de stockage ZFS et LVM-Thin.",
+                impact_sisr: "Isolement immédiat de l'interface d'administration Proxmox (port 8006) sur un VLAN d'administration isolé non routable depuis Internet, et activation du stockage de sauvegarde immuable PBS (Proxmox Backup Server) avec rétention verrouillée (WORM).",
+                full_text: "Les chercheurs en cybersécurité ont identifié une campagne offensive active qui recherche des interfaces d'administration web d'hyperviseurs bare-metal exposées sur Internet. Après obtention des jetons API d'accès ou force brute sur SSH, le script injecte un binaire ELF qui stoppe les processus kvm via qm stop et chiffre les fichiers disques d'extensions .qcow2 et .raw. L'investigation démontre qu'aucune machine virtuelle ne peut redémarrer sans la clé privée, soulignant l'obligation vitale de conserver une copie froide hors-ligne (Air Gap)."
+            },
+            {
+                id: "2026-10-19-it-connect-powershell-hardening-script",
+                date: "2026-10-19",
+                source: "IT-Connect",
+                category: "Systèmes & Automatisation",
+                title: "Durcissement d'Active Directory : Script PowerShell Automatisé pour Détecter les Objets Orphelins",
+                summary: "Guide d'automatisation SysAdmin détaillant l'audit des comptes inactifs depuis plus de 90 jours, la désactivation des délégations Kerberos non contraintes et le nettoyage des SPN obsolètes.",
+                impact_sisr: "Intégration d'un script d'audit hebdomadaire en tâche planifiée sur le contrôleur de domaine principal avec envoi de rapports de conformité par email aux administrateurs pour limiter les attaques Kerberoasting.",
+                full_text: "L'accumulation d'objets inactifs et de comptes de services dotés de privilèges disproportionnés forme la porte d'entrée privilégiée lors des mouvements latéraux. IT-Connect propose une approche scriptée complète sous PowerShell (Module ActiveDirectory) permettant de scanner les attributs lastLogonTimestamp et d'identifier les comptes dont le mot de passe n'a jamais expiré. La méthode détaille également comment générer des alertes automatiques dans GLPI pour tracer les demandes de révocation de droits."
+            },
+            {
+                id: "2026-10-18-anssi-nis2-preregistrement",
+                date: "2026-10-18",
+                source: "ANSSI",
+                category: "Directive Européenne & Gouvernance",
+                title: "Directive Européenne NIS 2 : Ouverture du Portail de Déclaration et Directives pour les PME et ETI",
+                summary: "L'ANSSI encadre la déclaration obligatoire des Entités Essentielles (EE) et Importantes (EI) avec notification obligatoire sous 24h de tout incident impactant la disponibilité du SI.",
+                impact_sisr: "Mise en conformité du parc en alternance : cartographie intégrale de la chaîne logicielle (CMDB sous GLPI), activation du MFA pour tous les utilisateurs VPN et formalisation du Plan de Reprise d'Activité (PRA).",
+                full_text: "La transposition de la directive NIS 2 redéfinit les critères de responsabilité juridique et opérationnelle des équipes informatiques. Des milliers d'organisations en France doivent justifier de mesures concrètes : analyse des risques des prestataires tiers, sauvegardes chiffrées hors site, et maintien d'un journal d'événements centralisé pendant 6 mois au minimum. Pour le technicien SISR, cela se traduit par la configuration de passerelles de logs sécurisées (Syslog-ng/TLS) et la documentation des topologies d'urgence."
+            },
+            {
+                id: "2026-10-17-cert-fr-active-directory-tiering",
+                date: "2026-10-17",
+                source: "CERT-FR",
+                category: "Durcissement Infrastructure",
+                title: "Guide Pratique : Cloisonnement des Comptes à Privilèges et Déploiement du Modèle en Tiers (Tiering AD)",
+                summary: "Le CERT-FR insiste sur la rupture des chemins d'élévation de privilèges pour bloquer la compromission totale des forêts Active Directory d'entreprise.",
+                impact_sisr: "Application stricte des règles de Tiering : interdiction formelle pour les comptes 'Domain Admin' (Tier 0) de s'authentifier sur les postes clients (Tier 2). Déploiement obligatoire de la solution Microsoft LAPS pour tous les mots de passe administrateur local.",
+                full_text: "L'investigation des récentes cyberattaques démontre que la propagation de rançongiciels est presque systématiquement rendue possible par la persistance d'empreintes de credentials d'administration sur des machines utilisateurs infectées. Le CERT-FR décrit l'implémentation du modèle Tier 0 (Contrôleurs de domaine, PKI, ADFS), Tier 1 (Serveurs d'applications métiers) et Tier 2 (Postes de travail). L'utilisation de GPO de restriction d'attribution des droits (User Rights Assignment) empêche le vol de hashs NTLM via mimikatz."
+            },
+            {
+                id: "2026-10-16-bleeping-fortinet-cve-auth-bypass",
+                date: "2026-10-16",
+                source: "BleepingComputer",
+                category: "Vulnérabilités Zero-Day",
+                title: "Exploitation Active d'une Faille Critique de Contournement d'Authentification sur les Passerelles VPN SSL",
+                summary: "Des groupes APT exploitent une faille zero-day permettant de télécharger la configuration complète du pare-feu et de créer des comptes d'administration fantômes sans authentification préalable.",
+                impact_sisr: "Vérification des journaux d'accès VPN SSL, désactivation de l'accès administratif distant sur les interfaces WAN et application d'urgence du correctif de firmware du constructeur.",
+                full_text: "Une vulnérabilité de sévérité maximale affecte les modules de terminaison VPN SSL de nombreuses appliances de sécurité périmétrique. L'attaquant envoie une requête HTTP spécialement forgée exploitant un débordement de tampon dans le processus de pré-authentification web. Les recommandations immédiates préconisent le basculement vers des tunnels IPsec IKEv2 ou WireGuard avec certificats machine en attendant le déploiement généralisé des correctifs logiciels."
+            },
+            {
+                id: "2026-10-15-it-connect-sccm-patch-tuesday-automation",
+                date: "2026-10-15",
+                source: "IT-Connect",
+                category: "Administration de Parc",
+                title: "Mise en Place des Règles de Déploiement Automatique (ADR) sous SCCM pour le Patch Tuesday",
+                summary: "Tutoriel exhaustif pour automatiser la validation et la distribution échelonnée des correctifs de sécurité mensuels de Microsoft au sein de Device Collections hiérarchisées.",
+                impact_sisr: "Directement lié à nos projets alternance : configuration d'une collection pilote (10% du parc) pendant 48 heures avant déploiement généralisé afin d'éviter les interruptions de service sur les postes métiers critiques.",
+                full_text: "La gestion du cycle de vie des correctifs (Patch Management) est une composante clé du référentiel BTS SIO. L'article détaille le paramétrage du Software Update Point (SUP) relié à WSUS dans Configuration Manager. À l'aide de requêtes WQL spécifiques, les postes sont regroupés par anneaux de déploiement (Ring 0 : Informatique, Ring 1 : Utilisateurs tests, Ring 2 : Production), assurant une surveillance en temps réel du taux de conformité logiciel."
+            },
+            {
+                id: "2026-10-14-anssi-recommandations-dnssec",
+                date: "2026-10-14",
+                source: "ANSSI",
+                category: "Sécurité des Protocoles Réseau",
+                title: "Recommandations Techniques pour le Déploiement Sécurisé de DNSSEC et DoH sur les Résolveurs d'Entreprise",
+                summary: "L'agence détaille comment se prémunir contre les attaques par empoisonnement de cache DNS (DNS Cache Poisoning) et les détournements de trafic web.",
+                impact_sisr: "Activation de la validation cryptographique DNSSEC sur notre résolveur Unbound sous pfSense et interdiction des requêtes DNS sortantes non maîtrisées via des règles de redirection NAT vers le port 53 interne.",
+                full_text: "L'intégrité de la résolution de noms de domaine constitue le socle de toute la chaîne de confiance Internet. L'ANSSI présente un guide de configuration pas-à-pas pour implémenter DNSSEC sur les résolveurs récursifs d'entreprise (Bind9, Unbound). Le document aborde la gestion des clés de signature (KSK et ZSK) ainsi que les précautions opérationnelles pour éviter les pannes de résolution consécutives à une expiration non anticipée de clés cryptographiques."
+            },
+            {
+                id: "2026-10-13-cert-fr-cve-microsoft-patch-tuesday",
+                date: "2026-10-13",
+                source: "CERT-FR",
+                category: "Alertes Systèmes Microsoft",
+                title: "CERTFR-2026-ALE-017 : Analyse des Vulnérabilités du Patch Tuesday d'Octobre 2026",
+                summary: "Microsoft publie des correctifs pour 85 failles dont 3 vulnérabilités critiques d'exécution de code à distance dans le spouleur d'impression Windows et le service RPC.",
+                impact_sisr: "Lancement des campagnes de mise à jour d'urgence sur l'ensemble des serveurs Windows Server 2022/2025 et désactivation du service Spooler sur les contrôleurs de domaine (recommandation ANSSI).",
+                full_text: "Le bulletin mensuel du CERT-FR classe deux vulnérabilités en risque immédiat d'exploitation par ver informatique (wormable). L'une d'entre elles permet à un attaquant non authentifié sur le sous-réseau local d'obtenir les privilèges NT AUTHORITY\\SYSTEM en transmettant des paquets RPC forgés. Les équipes d'administration doivent prioriser les serveurs exposés et tester la non-régression des partages de fichiers SMB."
+            },
+            {
+                id: "2026-10-12-bleeping-github-actions-secrets-leak",
+                date: "2026-10-12",
+                source: "BleepingComputer",
+                category: "Sécurité DevOps & Cloud",
+                title: "Fuite Massive de Jetons Cloud via des Workflows CI/CD GitHub Actions Mal Sécurisés",
+                summary: "Des milliers de clés d'accès SSH et de jetons API Cloud AWS/Azure exposés publiquement suite à de mauvaises pratiques d'injection de secrets dans les fichiers YAML de pipelines.",
+                impact_sisr: "Audit de nos pipelines de déploiement (notamment pour l'actualisation du portfolio) : utilisation exclusive de Secrets chiffrés avec rotation automatique et limitation des droits des jetons au strict minimum (read-only).",
+                full_text: "Une vaste étude de sécurité montre que l'automatisation des déploiements via des pipelines de continuous integration (CI) présente des risques sévères si les variables d'environnement sont injectées en texte clair dans les logs d'exécution. Les attaquants scannent en permanence les dépôts publics pour récupérer ces identifiants et déployer des instances pirates. La recommandation impose l'audit des workflows et la mise en place d'un outil d'analyse statique des secrets (GitGuardian/TruffleHog)."
+            },
+            {
+                id: "2026-10-11-it-connect-glpi-10-agent-inventory",
+                date: "2026-10-11",
+                source: "IT-Connect",
+                category: "Gestion de Parc & Support",
+                title: "Déploiement Massif de l'Agent GLPI 10 via GPO Active Directory pour un Inventaire Automatisé",
+                summary: "Guide complet sur le paramétrage du paquet MSI GLPI Agent avec passage d'arguments silencieux pour inventorier les composants matériels, logiciels et écrans sans action de l'utilisateur.",
+                impact_sisr: "Liaison directe avec la compétence B1.1 (Patrimoine informatique) : maintien d'une base de données d'équipements à jour en temps réel pour détecter les logiciels non autorisés sur le parc.",
+                full_text: "Pour les structures ne disposant pas de solutions lourdes comme SCCM, l'association de GLPI 10 et de son agent natif constitue une alternative open source robuste. L'article décrit comment générer un script VBS ou PowerShell de démarrage machine déployé par GPO pour installer l'agent en tâche de fond, configurer l'URL du serveur d'inventaire sécurisée en HTTPS et planifier une remontée d'inventaire quotidienne."
+            },
+            {
+                id: "2026-10-10-anssi-authentification-fido2-guide",
+                date: "2026-10-10",
+                source: "ANSSI",
+                category: "Identités & Authentification",
+                title: "Recommandations Relatives à l'Utilisation des Mécanismes d'Authentification FIDO2 / Passkeys en Entreprise",
+                summary: "L'agence encourage la transition vers des mécanismes d'authentification résistants au phishing (Phishing-Resistant MFA) pour remplacer les codes SMS et applications TOTP vulnérables.",
+                impact_sisr: "Planification d'un Proof of Concept (PoC) en entreprise pour intégrer des clés de sécurité physiques FIDO2 (YubiKey) sur le portail d'accès aux infrastructures d'administration (Console Proxmox et VPN).",
+                full_text: "Face aux attaques sophistiquées de type 'Adversary-in-the-Middle' (AiTM) capables d'intercepter les cookies de session et les codes temporaires générés par application mobile, l'ANSSI formalise ses critères d'évaluation des solutions d'authentification forte. Les protocoles FIDO2 et WebAuthn reposent sur la cryptographie asymétrique liée au nom de domaine, rendant le rejeu d'identifiants impossible même en cas de site miroir frauduleux."
+            },
+            {
+                id: "2026-10-09-cert-fr-cve-linux-kernel-priv-esc",
+                date: "2026-10-09",
+                source: "CERT-FR",
+                category: "Vulnérabilités Systèmes Linux",
+                title: "CERTFR-2026-ALE-016 : Élévation Locale de Privilèges dans le Sous-Système Netfilter du Kernel Linux",
+                summary: "Une faille de type Use-After-Free permet à un utilisateur local standard de s'octroyer les privilèges root (UID 0) sur les distributions Debian 12 et Ubuntu 24.04 LTS.",
+                impact_sisr: "Mise à jour immédiate du noyau Linux sur nos serveurs Debian et application de restrictions sur les namespaces utilisateurs non privilégiés (sysctl kernel.unprivileged_userns_clone=0).",
+                full_text: "Le CERT-FR a émis un avis d'alerte suite à la publication d'un exploit fonctionnel ciblant le composant nf_tables du noyau Linux. Un utilisateur disposant d'un simple accès SSH ou d'un shell applicatif peut manipuler des règles de filtrage réseau internes pour écraser des structures mémoires sensibles et obtenir un shell root interactif. Les correctifs ont été poussés dans les dépôts de sécurité de Debian et doivent être appliqués avec redémarrage contrôlé des serveurs."
+            },
+            {
+                id: "2026-10-08-bleeping-esxi-vmware-ransomware-attacks",
+                date: "2026-10-08",
+                source: "BleepingComputer",
+                category: "Menaces & Virtualisation",
+                title: "Campagne Internationale de Ransomware Ciblant les Hyperviseurs Bare-Metal Non Mis à Jour",
+                summary: "Une souche modifiée de ransomware exploite des vulnérabilités connues dans les services SLP et OpenSLP pour chiffrer massivement les volumes de stockage partagés des datacenters.",
+                impact_sisr: "Vérification de la désactivation du service SLP sur les hyperviseurs, isolement strict des flux de management et tests de restauration complète à partir de sauvegardes immuables externalisées.",
+                full_text: "Les opérateurs de rançongiciels continuent de cibler les hyperviseurs d'entreprise car ils permettent de paralyser l'activité opérationnelle en une seule action coordonnée. En s'exécutant directement au niveau de la couche de virtualisation, le logiciel malveillant s'attaque aux fichiers disques virtuels sans avoir à contourner les antivirus présents à l'intérieur des VM invitées. Cette menace souligne l'importance d'une stratégie de défense en profondeur au niveau matériel."
+            },
+            {
+                id: "2026-10-07-it-connect-wireguard-site-to-site-debian",
+                date: "2026-10-07",
+                source: "IT-Connect",
+                category: "Réseaux & VPN",
+                title: "Monter un Tunnel VPN Site-à-Site Haut Débit avec WireGuard sous Debian 12",
+                summary: "Tutoriel réseau pour interconnecter de manière sécurisée deux réseaux locaux distants en exploitant la rapidité et la légèreté cryptographique du protocole WireGuard.",
+                impact_sisr: "Alternative moderne aux tunnels IPsec traditionnels pour nos projets de réseau inter-sites : réduction drastique de la latence et configuration épurée basée sur des paires de clés publiques/privées.",
+                full_text: "WireGuard s'impose de plus en plus face à OpenVPN et IPsec grâce à son intégration directe dans le noyau Linux et son utilisation d'algorithmes cryptographiques modernes (ChaCha20, Curve25519). L'article guide l'administrateur dans la génération des clés, la configuration des interfaces wg0, l'activation du routage IP (ip_forward) et la mise en place de règles iptables pour assurer la communication fluide entre deux sous-réseaux privés distants."
+            },
+            {
+                id: "2026-10-06-anssi-referentiel-secnumcloud-32",
+                date: "2026-10-06",
+                source: "ANSSI",
+                category: "Cloud de Confiance & Réglementation",
+                title: "Publication du Référentiel SecNumCloud 3.2 : Exigences Renforcées pour l'Hébergement Souverain",
+                summary: "L'ANSSI durcit les critères de qualification des prestataires de Cloud pour garantir l'immunité contre les lois extraterritoriales et le chiffrement de bout en bout des données sensibles.",
+                impact_sisr: "Pour nos choix d'infrastructures hybrides en entreprise : privilégier des hébergeurs qualifiés SecNumCloud pour le stockage des sauvegardes externalisées et la gestion des identités répliquées.",
+                full_text: "Le visa de sécurité SecNumCloud représente le plus haut niveau d'exigence européen en matière de sécurité du Cloud computing. Cette nouvelle révision impose l'utilisation de modules HSM (Hardware Security Module) certifiés pour la gestion des clés de chiffrement et interdit tout accès logique par des entités juridiques soumises à des réglementations extra-européennes (Cloud Act). Cette directive s'inscrit au cœur des enjeux de souveraineté numérique."
+            },
+            {
+                id: "2026-10-05-cert-fr-cve-cisco-ios-xe-remote",
+                date: "2026-10-05",
+                source: "CERT-FR",
+                category: "Alertes Équipements Réseau",
+                title: "CERTFR-2026-ALE-015 : Exécution de Commandes à Distance Non Authentifiée sur Cisco IOS XE",
+                summary: "Une vulnérabilité critique dans l'interface web de gestion logicielle permet à un attaquant distant d'injecter des commandes avec les privilèges maximum sur les commutateurs et routeurs.",
+                impact_sisr: "Audit d'urgence de tous les switches managés du parc : désactivation de la fonction 'ip http server' et confinement de l'accès SSH au seul réseau local d'administration (VLAN 10).",
+                full_text: "Une alerte internationale a été diffusée concernant l'exploitation active d'une vulnérabilité présente dans la pile logicielle web de commutateurs d'accès et de cœur de réseau. En envoyant des requêtes HTTP POST forgées contenant des métacaractères shell, un attaquant contourne les contrôles d'accès et implante un implant persistant dans la mémoire non volatile (NVRAM). Les administrateurs doivent couper immédiatement l'accès web externe."
+            },
+            {
+                id: "2026-10-04-bleeping-crowdstrike-agent-spoofing-malware",
+                date: "2026-10-04",
+                source: "BleepingComputer",
+                category: "Menaces & Postes de Travail",
+                title: "Des Hackers Usurpent les Outils EDR pour Neutraliser les Antivirus et Contourner Windows Defender",
+                summary: "Diffusion de faux installeurs d'agents de sécurité signés avec des certificats volés pour installer des pilotes corrompus (BYOVD) et désactiver les protections système.",
+                impact_sisr: "Verrouillage de la politique de signature des pilotes sous Windows (Driver Signature Enforcement) et interdiction d'installation de logiciels sans validation cryptographique via SCCM ou AppLocker.",
+                full_text: "La technique 'Bring Your Own Vulnerable Driver' (BYOVD) consiste pour les attaquants à introduire un pilote légitime mais connu pour comporter des failles de sécurité, afin d'exécuter du code au niveau Ring 0 du processeur. À ce niveau de privilège, le malware peut désactiver directement les hooks de sécurité des antivirus et des agents EDR sans déclencher d'alerte. Cette menace requiert l'activation des fonctionnalités Virtualization-Based Security (VBS) dans le BIOS/UEFI."
+            },
+            {
+                id: "2026-10-03-it-connect-backup-3-2-1-veeam-immutable",
+                date: "2026-10-03",
+                source: "IT-Connect",
+                category: "Sauvegardes & Continuité d'Activité",
+                title: "Architecture de Sauvegarde Immuable avec Veeam Backup & Replication et Dépôt Linux Durci",
+                summary: "Méthodologie détaillée pour déployer un serveur de stockage de sauvegarde sous Ubuntu Server avec l'attribut d'immuabilité (chattr +i) pour immuniser les sauvegardes contre le rançonnage.",
+                impact_sisr: "Indispensable pour l'épreuve E4 (Maintien en condition opérationnelle) : garantie mathématique que même un administrateur dont le compte est corrompu ne peut supprimer les sauvegardes avant expiration du délai légal.",
+                full_text: "La règle de sauvegarde 3-2-1-1-0 constitue le pilier fondamental de la résilience face aux cyberattaques modernes. L'article détaille le paramétrage d'un Hardened Repository Linux sous Veeam : aucun accès SSH permanent, authentification par clé à usage unique lors du setup, et verrouillage des blocs de données par des drapeaux d'immuabilité au niveau du système de fichiers XFS. Ainsi, les fichiers de sauvegarde ne peuvent être ni modifiés ni effacés."
+            },
+            {
+                id: "2026-10-02-anssi-securite-passerelles-messagerie-dmarc",
+                date: "2026-10-02",
+                source: "ANSSI",
+                category: "Sécurité des Flux Messagerie",
+                title: "Note Technique : Obligation de Déploiement du Protocole DMARC en Politique de Rejet (p=reject)",
+                summary: "L'ANSSI publie un rappel technique rappelant que la configuration SPF et DKIM sans enregistrement DMARC strict laisse les domaines d'entreprise vulnérables à l'usurpation d'identité.",
+                impact_sisr: "Audit des enregistrements DNS publics de nos domaines : configuration de l'enregistrement TXT DMARC avec politique de rejet et mise en place d'une boîte aux lettres dédiée pour l'analyse des rapports agrégés RUA.",
+                full_text: "Le phishing et le spear-phishing demeurent le premier vecteur initial d'intrusion dans les organisations. L'ANSSI rappelle les bonnes pratiques de configuration des serveurs de messagerie (Exchange, Postfix) : mise en conformité des clés DKIM en 2048 bits minimum, restriction des serveurs d'émission dans l'enregistrement SPF avec terminaison '-all' et déploiement progressif de DMARC (de 'none' vers 'quarantine' puis 'reject') pour neutraliser l'usurpation d'adresse."
+            },
+            {
+                id: "2026-10-01-cert-fr-cve-apache-http-server-dos",
+                date: "2026-10-01",
+                source: "CERT-FR",
+                category: "Alertes Serveurs Web",
+                title: "CERTFR-2026-ALE-014 : Déni de Service Majeur dans le Module HTTP/2 du Serveur Web Apache",
+                summary: "Une mauvaise gestion des flux de multiplexage HTTP/2 (Attaque 'Continuation Flood') permet de saturer l'utilisation CPU du serveur avec une seule connexion TCP ouverte.",
+                impact_sisr: "Sur nos serveurs de DMZ hébergeant les plateformes web et GLPI : mise à jour des paquets Apache2 vers la version sécurisée 2.4.62 et ajustement de la directive 'LimitRequestFields' dans la configuration.",
+                full_text: "Le CERT-FR met en garde les administrateurs systèmes contre une attaque par épuisement de ressources affectant l'implémentation du protocole HTTP/2 sous Apache HTTP Server. En omettant de fermer correctement les trames CONTINUATION sans flag END_HEADERS, l'attaquant force le processus serveur à allouer des cycles processeur continus jusqu'à l'effondrement du service. Les distributions Linux ont publié des correctifs en urgence qui doivent être déployés sans délai."
+            }
+        ];
+
+        let activeSourceFilter = 'all';
+
+        // 8. Rendu Dynamique des Cartes de Veille (22 Articles)
+        function renderVeilleGrid(articles) {
+            const grid = document.getElementById('veille-grid');
+            const badge = document.getElementById('veille-count-badge');
+            
+            if (badge) {
+                badge.textContent = `${articles.length} article${articles.length > 1 ? 's' : ''} affiché${articles.length > 1 ? 's' : ''} (1 - 22 Oct 2026)`;
+            }
+
+            if (articles.length === 0) {
+                grid.innerHTML = '<div class="col-span-full text-center py-12 text-zinc-500 font-mono text-xs">Aucun article ne correspond à votre filtre de recherche.</div>';
+                return;
+            }
+
+            grid.innerHTML = articles.map(art => `
+                <div class="rounded-2xl border border-zinc-200 dark:border-zinc-900 bg-white dark:bg-zinc-950 p-5 flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300 group shadow-sm">
+                    <div>
+                        <!-- Header Carte : Source & Date Quotidienne -->
+                        <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 dark:text-zinc-400 mb-2">
+                            <span class="text-emerald-700 dark:text-emerald-400 font-bold tracking-wide flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                ${art.source}
+                            </span>
+                            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 font-semibold text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800">
+                                ${art.date}
+                            </span>
+                        </div>
+
+                        <!-- Badge Catégorie -->
+                        <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 inline-block mb-2.5 border border-zinc-200 dark:border-zinc-800">
+                            ${art.category}
+                        </span>
+
+                        <!-- Titre Quotidien -->
+                        <h3 class="text-sm font-bold text-zinc-950 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors line-clamp-2 leading-snug">
+                            ${art.title}
+                        </h3>
+
+                        <!-- Résumé -->
+                        <p class="text-zinc-600 dark:text-zinc-400 text-xs mt-2.5 line-clamp-3 leading-relaxed">
+                            ${art.summary}
+                        </p>
+                    </div>
+
+                    <!-- Bouton de lecture intégrale sur place sans redirection -->
+                    <button onclick="openVeilleModalById('${art.id}')" class="mt-4 w-full py-2.5 px-3 rounded-xl bg-zinc-100 dark:bg-zinc-900 hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-500 dark:hover:text-black font-mono text-xs font-semibold text-zinc-800 dark:text-zinc-200 transition-all flex items-center justify-center gap-2 border border-zinc-200 dark:border-zinc-800">
+                        <i class="fa-regular fa-file-lines"></i>
+                        <span>Lire la synthèse complète</span>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function setVeilleSourceFilter(src) {
+            activeSourceFilter = src;
+            document.querySelectorAll('#veille-source-filters .veille-src-btn').forEach(btn => {
+                if (btn.getAttribute('data-source') === src) {
+                    btn.className = 'veille-src-btn active px-3 py-1.5 rounded-lg text-xs font-mono font-bold bg-emerald-600 text-white transition';
+                } else {
+                    btn.className = 'veille-src-btn px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-white dark:bg-black text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:border-emerald-500 transition';
+                }
+            });
+            filterVeilleCards();
+        }
+
+        function filterVeilleCards() {
+            const query = document.getElementById('veille-search-input').value.toLowerCase().trim();
+            const filtered = veilleArticlesList.filter(art => {
+                const matchSrc = (activeSourceFilter === 'all' || art.source === activeSourceFilter);
+                const matchQuery = (
+                    art.title.toLowerCase().includes(query) || 
+                    art.summary.toLowerCase().includes(query) || 
+                    art.category.toLowerCase().includes(query) ||
+                    art.date.includes(query)
+                );
+                return matchSrc && matchQuery;
+            });
+            renderVeilleGrid(filtered);
+        }
+
+        function openVeilleModalById(id) {
+            const art = veilleArticlesList.find(a => a.id === id);
+            if (!art) return;
+
+            document.getElementById('modal-veille-category').textContent = art.category;
+            document.getElementById('modal-veille-source').textContent = `Source officielle : ${art.source}`;
+            document.getElementById('modal-veille-title').textContent = art.title;
+            document.getElementById('modal-veille-date').textContent = `Date de publication : ${art.date} (Synthèse quotidienne)`;
+            document.getElementById('modal-veille-impact').textContent = art.impact_sisr;
+            document.getElementById('modal-veille-fulltext').innerHTML = `<p>${art.full_text}</p>`;
+
+            document.getElementById('modal-veille').classList.remove('hidden');
+        }
+
+        function closeVeilleModal() {
+            document.getElementById('modal-veille').classList.add('hidden');
+        }
+
+        // 9. Copie d'Email & Toast Système
+        function copyEmailToClipboard() {
+            const email = 'kevin.haroutunian@estiam.com';
+            const temp = document.createElement('textarea');
+            temp.value = email;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+
+            const btnLabel = document.getElementById('copy-btn-label');
+            btnLabel.textContent = 'Copié !';
+            setTimeout(() => { btnLabel.textContent = 'Copier'; }, 2200);
+
+            showToast('Email kevin.haroutunian@estiam.com copié dans le presse-papiers !');
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            const subject = document.getElementById('contact-subject').value;
+            showToast(`Merci ${name} ! Votre message (${subject}) a été transmis.`);
+            document.getElementById('contact-form').reset();
+        }
+
+        let toastTimeout;
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 4000);
+        }
+
+        // 10. Gestion des Claviers & Clics Extérieurs
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeVeilleModal();
+                closeProjectModal();
+            }
+        });
+
+        document.getElementById('modal-veille').addEventListener('click', (e) => {
+            if (e.target.id === 'modal-veille') closeVeilleModal();
+        });
+        document.getElementById('modal-project').addEventListener('click', (e) => {
+            if (e.target.id === 'modal-project') closeProjectModal();
+        });
+
+        // Initialisation automatique
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            renderVeilleGrid(veilleArticlesList);
+        });
+    </script>
+</body>
+</html>
