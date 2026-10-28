@@ -1,5 +1,15 @@
 [
   {
+    "id": "art-2026-10-28-cert-fr",
+    "source": "CERT-FR",
+    "category": "Alertes & Vulnérabilités",
+    "title": "Recommandations à destination  des acteurs du secteur de l’énergie et de l’eau (22 janvier 2026)",
+    "date": "2026-10-28",
+    "summary": "**Objet** : Recommandations de sécurisation des systèmes d’information à destination des producteurs, des intégrateurs et des installateurs des systèmes de production industriels d...",
+    "full_text": "**Objet** : Recommandations de sécurisation des systèmes d’information à destination des producteurs, des intégrateurs et des installateurs des systèmes de production industriels du secteur de l’énergie et de l’eau en France. **Annexe** : Liens et références Depuis plusieurs mois, l’Agence...",
+    "impact_sisr": "Vérification des dépendances d'infrastructure, analyse des correctifs et application des recommandations du CERT-FR/ANSSI sur le parc d'entreprise."
+  },
+  {
     "id": "art-2026-10-27-cert-fr",
     "source": "CERT-FR",
     "category": "Alertes & Vulnérabilités",
