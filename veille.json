@@ -1,5 +1,15 @@
 [
   {
+    "id": "art-2026-10-30-cert-fr",
+    "source": "CERT-FR",
+    "category": "Alertes & Vulnérabilités",
+    "title": "[Màj] Multiples vulnérabilités dans PHP (21 octobre 2026)",
+    "date": "2026-10-30",
+    "summary": "**[Mise à jour du 26 octobre 2026]** Le 23 octobre 2026, PHP a publié un avis de sécurité concernant la vulnérabilité CVE-2026-115560. Celle-ci permet une exécution de code arbitra...",
+    "full_text": "**[Mise à jour du 26 octobre 2026]** Le 23 octobre 2026, PHP a publié un avis de sécurité concernant la vulnérabilité CVE-2026-115560. Celle-ci permet une exécution de code arbitraire à distance. L'éditeur estime que les conditions d'exploitation exigent une combinaison d'options de configuration...",
+    "impact_sisr": "Vérification des dépendances d'infrastructure, analyse des correctifs et application des recommandations du CERT-FR/ANSSI sur le parc d'entreprise."
+  },
+  {
     "id": "art-2026-10-29-cert-fr",
     "source": "CERT-FR",
     "category": "Alertes & Vulnérabilités",
