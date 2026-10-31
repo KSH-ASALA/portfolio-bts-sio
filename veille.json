@@ -1,5 +1,15 @@
 [
   {
+    "id": "art-2026-10-31-cert-fr",
+    "source": "CERT-FR",
+    "category": "Alertes & Vulnérabilités",
+    "title": "Campagne de notifications de menace envoyée par Apple (11 septembre 2025)",
+    "date": "2026-10-31",
+    "summary": "Depuis 2021, Apple envoie des campagnes de notifications aux individus ciblés par des attaques menées à l’aide de logiciels espions. Ces logiciels, tels que Pegasus, Predator, Grap...",
+    "full_text": "Depuis 2021, Apple envoie des campagnes de notifications aux individus ciblés par des attaques menées à l’aide de logiciels espions. Ces logiciels, tels que Pegasus, Predator, Graphite ou Triangulation sont particulièrement sophistiqués et difficiles à détecter. Ces attaques complexes ciblent des...",
+    "impact_sisr": "Vérification des dépendances d'infrastructure, analyse des correctifs et application des recommandations du CERT-FR/ANSSI sur le parc d'entreprise."
+  },
+  {
     "id": "art-2026-10-30-cert-fr",
     "source": "CERT-FR",
     "category": "Alertes & Vulnérabilités",
