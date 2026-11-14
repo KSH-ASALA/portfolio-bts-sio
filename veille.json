@@ -1,5 +1,15 @@
 [
   {
+    "id": "art-2026-11-14-cert-fr",
+    "source": "CERT-FR",
+    "category": "Alertes & Vulnérabilités",
+    "title": "Point de situation de l’opération REACTIV – octobre 2026 (12 novembre 2026)",
+    "date": "2026-11-14",
+    "summary": "Face à l’intensification des attaques cybercriminelles liées à des violations de données affectant les services de l’État, le Premier ministre a demandé le 1er septembre 2026 à l’A...",
+    "full_text": "Face à l’intensification des attaques cybercriminelles liées à des violations de données affectant les services de l’État, le Premier ministre a demandé le 1er septembre 2026 à l’Agence nationale de la sécurité des systèmes d’information (ANSSI) de mettre en place une capacité renforcée de...",
+    "impact_sisr": "Vérification des dépendances d'infrastructure, analyse des correctifs et application des recommandations du CERT-FR/ANSSI sur le parc d'entreprise."
+  },
+  {
     "id": "art-2026-11-13-cert-fr",
     "source": "CERT-FR",
     "category": "Alertes & Vulnérabilités",
