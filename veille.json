@@ -1,5 +1,15 @@
 [
   {
+    "id": "art-2026-11-21-cert-fr",
+    "source": "CERT-FR",
+    "category": "Alertes & Vulnérabilités",
+    "title": "Multiples vulnérabilités dans Mattermost Server (20 octobre 2026)",
+    "date": "2026-11-21",
+    "summary": "De multiples vulnérabilités ont été découvertes dans Mattermost Server. Elles permettent à un attaquant de provoquer un déni de service à distance, une atteinte à la confidentialit...",
+    "full_text": "De multiples vulnérabilités ont été découvertes dans Mattermost Server. Elles permettent à un attaquant de provoquer un déni de service à distance, une atteinte à la confidentialité des données et un contournement de la politique de sécurité.",
+    "impact_sisr": "Vérification des dépendances d'infrastructure, analyse des correctifs et application des recommandations du CERT-FR/ANSSI sur le parc d'entreprise."
+  },
+  {
     "id": "art-2026-11-20-cert-fr",
     "source": "CERT-FR",
     "category": "Alertes & Vulnérabilités",
